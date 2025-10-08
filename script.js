@@ -56,23 +56,22 @@ function endGame() {
   // });
 }
 
-box.addEventListener("click", () => {
-  if (!gameRunning) return;
-  totalClicks++;
-  score++;
-  accuracy = (score / totalClicks) * 100;
-  scoreDisplay.textContent = "Score: " + score;
-  totalDisplay.textContent = "Total Clicks: " + totalClicks;
-  accuracyDisplay.textContent = "Accuracy: " + accuracy.toFixed(2) + "%";
-  randomPosition();
-});
-
 gameArea.addEventListener("click", () => {
   if (!gameRunning) return;
   totalClicks++;
   accuracy = (score / totalClicks) * 100;
   totalDisplay.textContent = "Total Clicks: " + totalClicks;
   accuracyDisplay.textContent = "Accuracy: " + accuracy.toFixed(2) + "%";
+});
+
+box.addEventListener("click", () => {
+  if (!gameRunning) return;
+  score++;
+  accuracy = (score / totalClicks) * 100;
+  scoreDisplay.textContent = "Score: " + score;
+  totalDisplay.textContent = "Total Clicks: " + totalClicks;
+  accuracyDisplay.textContent = "Accuracy: " + accuracy.toFixed(2) + "%";
+  randomPosition();
 });
 
 startBtn.addEventListener("click", startGame);
