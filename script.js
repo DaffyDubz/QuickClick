@@ -1,11 +1,14 @@
 const box = document.getElementById("box");
 const scoreDisplay = document.getElementById("score");
 const timeDisplay = document.getElementById("time");
+const accuracyDisplay = document.getElementById("accuracy");
 const startBtn = document.getElementById("start");
 const gameArea = document.getElementById("game-area");
 
 let score = 0;
+let accuracy = 100;
 let timeLeft = 30;
+let totalClicks = 0;
 let gameRunning = false;
 let timer;
 
@@ -18,9 +21,12 @@ function randomPosition() {
 
 function startGame() {
   score = 0;
+  accuracy = 100;
   timeLeft = 30;
+  totalClicks = 0;
   gameRunning = true;
   scoreDisplay.textContent = "Score: " + score;
+  accuracyDisplay.textContent = "Accuracy: " + accuracy + "%";
   timeDisplay.textContent = "Time: " + timeLeft + "s";
   startBtn.disabled = true;
   box.style.display = "block";
@@ -38,7 +44,7 @@ function endGame() {
   box.style.display = "none";
   startBtn.disabled = false;
   gameRunning = false;
-  alert("Game Over! Your score: " + score);
+  alert("Game Over! \nYour score: " + score + "\nYour accuracy: " + accuracy + "%");
 
   // Optional: send score to your bot backend
   // fetch("http://localhost:3000/api/submit_score", {
@@ -50,9 +56,19 @@ function endGame() {
 
 box.addEventListener("click", () => {
   if (!gameRunning) return;
+  totalClicks++;
   score++;
+  accuracy = score/totalClicks;
   scoreDisplay.textContent = "Score: " + score;
+  accuracyDisplay.textContent = "Accuracy: " + accuracy + "%";
   randomPosition();
+});
+
+gameArea.addEventListener("click", () => {
+  if (!gameRunning) return;
+  totalClicks++;
+  accuracy = score/totalClicks;
+  accuracyDisplay.textContent = "Accuracy: " + accuracy + "%";
 });
 
 startBtn.addEventListener("click", startGame);
