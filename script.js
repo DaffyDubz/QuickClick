@@ -44,7 +44,7 @@ function endGame() {
   box.style.display = "none";
   startBtn.disabled = false;
   gameRunning = false;
-  alert("Game Over! \nYour score: " + score + "\nYour accuracy: " + accuracy + "%");
+  alert("Game Over! \nYour score: " + score + "\nYour accuracy: " + accuracy.toFixed(2) + "%");
 
   // Optional: send score to your bot backend
   // fetch("http://localhost:3000/api/submit_score", {
@@ -58,17 +58,17 @@ box.addEventListener("click", () => {
   if (!gameRunning) return;
   totalClicks++;
   score++;
-  accuracy = (score/totalClicks)*100;
+  accuracy = (score / totalClicks) * 100;
   scoreDisplay.textContent = "Score: " + score;
-  accuracyDisplay.textContent = "Accuracy: " + accuracy + "%";
+  accuracyDisplay.textContent = "Accuracy: " + accuracy.toFixed(2) + "%";
   randomPosition();
 });
 
 gameArea.addEventListener("click", () => {
   if (!gameRunning) return;
   totalClicks++;
-  accuracy = (score/totalClicks)*100;
-  accuracyDisplay.textContent = "Accuracy: " + accuracy + "%";
+  accuracy = (score / totalClicks) * 100;
+  accuracyDisplay.textContent = "Accuracy: " + accuracy.toFixed(2) + "%";
 });
 
 startBtn.addEventListener("click", startGame);
