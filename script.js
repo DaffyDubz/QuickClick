@@ -58,7 +58,7 @@ box.addEventListener("click", () => {
   if (!gameRunning) return;
   totalClicks++;
   score++;
-  accuracy = score/totalClicks;
+  accuracy = (score/totalClicks)*100;
   scoreDisplay.textContent = "Score: " + score;
   accuracyDisplay.textContent = "Accuracy: " + accuracy + "%";
   randomPosition();
@@ -67,7 +67,7 @@ box.addEventListener("click", () => {
 gameArea.addEventListener("click", () => {
   if (!gameRunning) return;
   totalClicks++;
-  accuracy = score/totalClicks;
+  accuracy = (score/totalClicks)*100;
   accuracyDisplay.textContent = "Accuracy: " + accuracy + "%";
 });
 
