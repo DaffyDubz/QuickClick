@@ -46,7 +46,7 @@ function endGame() {
   box.style.display = "none";
   startBtn.disabled = false;
   gameRunning = false;
-  alert("Game Over! \nYour score: " + score + "out of " + totalClicks + "\nYour accuracy: " + accuracy.toFixed(2) + "%");
+  alert("Game Over! \nYour score: " + score + "\nYour accuracy: " + accuracy.toFixed(2) + "%");
 
   // Optional: send score to your bot backend
   // fetch("http://localhost:3000/api/submit_score", {
