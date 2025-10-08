@@ -1,5 +1,6 @@
 const box = document.getElementById("box");
 const scoreDisplay = document.getElementById("score");
+const totalDisplay = document.getElementById("total");
 const timeDisplay = document.getElementById("time");
 const accuracyDisplay = document.getElementById("accuracy");
 const startBtn = document.getElementById("start");
@@ -26,6 +27,7 @@ function startGame() {
   totalClicks = 0;
   gameRunning = true;
   scoreDisplay.textContent = "Score: " + score;
+  scoreDisplay.textContent = "Total Clicks: " + totalClicks;
   accuracyDisplay.textContent = "Accuracy: " + accuracy + "%";
   timeDisplay.textContent = "Time: " + timeLeft + "s";
   startBtn.disabled = true;
@@ -60,6 +62,7 @@ box.addEventListener("click", () => {
   score++;
   accuracy = (score / totalClicks) * 100;
   scoreDisplay.textContent = "Score: " + score;
+  scoreDisplay.textContent = "Total Clicks: " + totalClicks;
   accuracyDisplay.textContent = "Accuracy: " + accuracy.toFixed(2) + "%";
   randomPosition();
 });
@@ -68,6 +71,7 @@ gameArea.addEventListener("click", () => {
   if (!gameRunning) return;
   totalClicks++;
   accuracy = (score / totalClicks) * 100;
+  scoreDisplay.textContent = "Total Clicks: " + totalClicks;
   accuracyDisplay.textContent = "Accuracy: " + accuracy.toFixed(2) + "%";
 });
 

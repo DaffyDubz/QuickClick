@@ -31,7 +31,7 @@ body {
   display: none;
 }
 
-#score, #time {
+#score, #time, #accuracy, #total {
   font-size: 20px;
   margin-top: 10px;
 }
