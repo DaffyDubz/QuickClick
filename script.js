@@ -27,7 +27,7 @@ function startGame() {
   totalClicks = 0;
   gameRunning = true;
   scoreDisplay.textContent = "Score: " + score;
-  scoreDisplay.textContent = "Total Clicks: " + totalClicks;
+  totalDisplay.textContent = "Total Clicks: " + totalClicks;
   accuracyDisplay.textContent = "Accuracy: " + accuracy + "%";
   timeDisplay.textContent = "Time: " + timeLeft + "s";
   startBtn.disabled = true;
